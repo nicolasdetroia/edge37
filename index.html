@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge37 Fund</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            margin-bottom: 40px;
+            text-transform: lowercase;
+        }
+
+        .fund-section {
+            margin: 40px 0;
+        }
+
+        .fund-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .fund-section p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .investments-section {
+            margin: 40px 0;
+        }
+
+        .investments-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .investment {
+            font-size: 14px;
+            line-height: 1.8;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .live {
+            color: #00f; /* Blue for "live" */
+        }
+
+        .positive {
+            color: #0f0; /* Green for positive returns */
+        }
+
+        .negative {
+            color: #f00; /* Red for negative returns */
+        }
+
+        .team-section {
+            margin: 40px 0;
+        }
+
+        .team-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .about-section {
+            margin: 40px 0;
+        }
+
+        .about-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            margin: 40px 0;
+        }
+
+        .contact-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .fund-section h2,
+            .investments-section h2,
+            .team-section h2,
+            .about-section h2,
+            .contact-section h2 {
+                font-size: 20px;
+            }
+
+            .fund-section p,
+            .investment,
+            .team-member,
+            .about-section p,
+            .contact-section p {
+                font-size: 12px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title and Subtitle -->
+        <h1 class="title">Edge37</h1>
+        <p class="subtitle">personal stock market fund</p>
+
+        <!-- The Fund Section -->
+        <section class="fund-section">
+            <h2>the fund</h2>
+            <p>250k aum, funded internally <br>started october 2021<br>3 members</p>
+        </section>
+      
+<!-- Latest Investments Section -->
+<section class="investments-section">
+    <h2>latest investments</h2>
+    <div class="investment">
+        <p>NVDA Stock | Bought on 12/17/2024 => <span class="negative">-7%</span> (Long-term AI growth play)</p>
+        <p>JEPQ ETF | Bought on 11/18/2024 => <span class="negative">-5%</span> (High-yield tech income)</p>
+        <p>JEPI ETF | Bought on 11/06/2024 => <span class="live">live</span> (Stable income, down slightly)</p>
+        <p>SPY 11/15/2024 550.00 C | BTO on 11/04/2024 & STC on 11/06/2024 => <span class="negative">-80%</span></p>
+    </div>
+</section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2>team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <p>nicolas d<br>partner</p>
+                </div>
+                <div class="team-member">
+                    <p>jeff w<br>pm</p>
+                </div>
+                <div class="team-member">
+                    <p>praneel p<br>analyst</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <h2>about</h2>
+            <p>we are a team of analysts dedicated to<br>providing insightful data analysis and<br>strategic solutions<br><br>[nicolasdetroia.com/edge37]</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>contact</h2>
+            <p>nicolas.detroia@rutgers.edu</p>
+            <p>jwang@purdue.edu<p>
+        </section>
+    </div>
+</body>
+</html>

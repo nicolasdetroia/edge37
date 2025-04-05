@@ -4,223 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>edge37 Fund</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center;
+            font-family: 'Space Mono', monospace;
+            background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 100%);
+            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
+        .glow-effect {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            filter: blur(50px);
+            z-index: -1;
         }
-
-        .title {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .animate-reveal {
+            animation: reveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
-
-        .subtitle {
-            font-size: 16px;
-            margin-bottom: 40px;
-            text-transform: lowercase;
+        .animate-pulse-slow {
+            animation: pulseSlow 4s infinite ease-in-out;
         }
-
-        .fund-section {
-            margin: 40px 0;
+        @keyframes reveal {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-
-        .fund-section h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        @keyframes pulseSlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
-
-        .fund-section p {
-            font-size: 14px;
-            line-height: 1.8;
+        .card-hover {
+            transition: all 0.4s ease;
         }
-
-        .investments-section {
-            margin: 40px 0;
-        }
-
-        .investments-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .investment {
-            font-size: 14px;
-            line-height: 1.8;
-            text-align: left;
-            margin: 0 auto;
-            max-width: 600px;
-        }
-
-        .live {
-            color: #00f; /* Blue for "live" */
-        }
-
-        .positive {
-            color: #0f0; /* Green for positive returns */
-        }
-
-        .negative {
-            color: #f00; /* Red for negative returns */
-        }
-
-        .team-section {
-            margin: 40px 0;
-        }
-
-        .team-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            font-size: 14px;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .team-member {
-            text-align: center;
-        }
-
-        .about-section {
-            margin: 40px 0;
-        }
-
-        .about-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .about-section p {
-            font-size: 14px;
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-section {
-            margin: 40px 0;
-        }
-
-        .contact-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .contact-section p {
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-            }
-
-            .fund-section h2,
-            .investments-section h2,
-            .team-section h2,
-            .about-section h2,
-            .contact-section h2 {
-                font-size: 20px;
-            }
-
-            .fund-section p,
-            .investment,
-            .team-member,
-            .about-section p,
-            .contact-section p {
-                font-size: 12px;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 255, 0.1);
+            border-color: rgba(59, 130, 246, 0.5);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <!-- Title and Subtitle -->
-        <h1 class="title">edge37</h1>
-        <p class="subtitle">personal stock market fund</p>
+<body class="text-white min-h-screen flex items-center justify-center p-8 md:p-16 relative">
+    <!-- Background Glow -->
+    <div class="glow-effect animate-pulse-slow"></div>
+
+    <div class="container max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
+        <header class="text-center mb-20 relative">
+            <h1 class="text-6xl md:text-8xl font-bold font-orbitron tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 animate-reveal">edge37</h1>
+            <p class="text-xl md:text-2xl text-gray-300 lowercase mt-4 animate-reveal" style="animation-delay: 0.2s;">personal stock market fund</p>
+            <div class="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-b from-blue-500 to-transparent"></div>
+        </header>
 
         <!-- The Fund Section -->
-        <section class="fund-section">
-            <h2>the fund</h2>
-            <p>250k aum, funded internally <br>started october 2021<br>3 members</p>
+        <section class="mb-24 animate-reveal" style="animation-delay: 0.4s;">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-100 font-orbitron">the fund</h2>
+            <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-10 shadow-2xl border border-gray-700/50 card-hover relative overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <p class="text-3xl font-bold text-blue-400">$250k</p>
+                        <p class="text-sm text-gray-400 mt-2">AUM, internally funded</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-400">Oct 2021</p>
+                        <p class="text-sm text-gray-400 mt-2">Established</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-400">3</p>
+                        <p class="text-sm text-gray-400 mt-2">Core Members</p>
+                    </div>
+                </div>
+                <div class="absolute inset-0 -z-10 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
         </section>
-      
-<!-- Latest Investments Section -->
-<section class="investments-section">
-    <h2>latest investments</h2>
-    <div class="investment">
-        <p>NVDA Stock | Bought on 12/17/2024 => <span class="negative">-7%</span> (Long-term AI growth play)</p>
-        <p>JEPQ ETF | Bought on 11/18/2024 => <span class="negative">-5%</span> (High-yield tech income)</p>
-        <p>JEPI ETF | Bought on 11/06/2024 => <span class="live">live</span> (Stable income, down slightly)</p>
-        <p>SPY 11/15/2024 550.00 C | BTO on 11/04/2024 & STC on 11/06/2024 => <span class="negative">-80%</span></p>
-    </div>
-</section>
+
+        <!-- Latest Investments Section -->
+        <section class="mb-24 animate-reveal" style="animation-delay: 0.6s;">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-100 font-orbitron">latest investments</h2>
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover">
+                    <p class="text-base md:text-lg">NVDA Stock | Bought 12/17/2024 => <span class="text-red-400 font-bold">-7%</span> <span class="text-gray-500 text-sm">(Long-term AI growth play)</span></p>
+                </div>
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover">
+                    <p class="text-base md:text-lg">JEPQ ETF | Bought 11/18/2024 => <span class="text-red-400 font-bold">-5%</span> <span class="text-gray-500 text-sm">(High-yield tech income)</span></p>
+                </div>
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover">
+                    <p class="text-base md:text-lg">JEPI ETF | Bought 11/06/2024 => <span class="text-blue-400 font-bold">live</span> <span class="text-gray-500 text-sm">(Stable income, down slightly)</span></p>
+                </div>
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover">
+                    <p class="text-base md:text-lg">SPY 11/15/2024 550.00 C | BTO 11/04/2024 & STC 11/06/2024 => <span class="text-red-400 font-bold">-80%</span></p>
+                </div>
+            </div>
+        </section>
 
         <!-- Team Section -->
-        <section class="team-section">
-            <h2>team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <p>nicolas d<br>partner</p>
+        <section class="mb-24 animate-reveal" style="animation-delay: 0.8s;">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-100 font-orbitron">team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover text-center">
+                    <p class="text-lg text-blue-400 font-bold">Nicolas D.</p>
+                    <p class="text-sm text-gray-400 mt-2">Partner</p>
                 </div>
-                <div class="team-member">
-                    <p>jeff w<br>pm</p>
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover text-center">
+                    <p class="text-lg text-blue-400 font-bold">Jeff W.</p>
+                    <p class="text-sm text-gray-400 mt-2">Portfolio Manager</p>
                 </div>
-                <div class="team-member">
-                    <p>praneel p<br>analyst</p>
+                <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-700/50 card-hover text-center">
+                    <p class="text-lg text-blue-400 font-bold">Praneel P.</p>
+                    <p class="text-sm text-gray-400 mt-2">Analyst</p>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="about-section">
-            <h2>about</h2>
-            <p>we are a team of analysts dedicated to<br>providing insightful data analysis and<br>strategic solutions<br><br>[nicolasdetroia.com/edge37]</p>
+        <section class="mb-24 animate-reveal" style="animation-delay: 1s;">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-100 font-orbitron">about</h2>
+            <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-10 shadow-2xl border border-gray-700/50 card-hover max-w-4xl mx-auto text-center relative overflow-hidden">
+                <p class="text-base md:text-lg text-gray-300 leading-relaxed">We are a team of seasoned analysts committed to delivering cutting-edge data analysis and strategic investment solutions.</p>
+                <a href="https://nicolasdetroia.com/edge37" class="inline-block mt-6 text-blue-400 hover:text-blue-300 font-bold transition-colors duration-300">[nicolasdetroia.com/edge37]</a>
+                <div class="absolute inset-0 -z-10 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="contact-section">
-            <h2>contact</h2>
-            <p>nicolas.detroia@rutgers.edu</p>
-            <p>jwang@purdue.edu<p>
+        <section class="mb-24 animate-reveal" style="animation-delay: 1.2s;">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10 text-center text-gray-100 font-orbitron">contact</h2>
+            <div class="bg-gray-900/90 backdrop-blur-lg rounded-2xl p-10 shadow-2xl border border-gray-700/50 card-hover text-center">
+                <p class="text-base md:text-lg text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-pointer mb-2">nicolas.detroia@rutgers.edu</p>
+                <p class="text-base md:text-lg text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-pointer">jwang@purdue.edu</p>
+            </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm mt-16 animate-reveal" style="animation-delay: 1.4s;">
+            <p>© 2025 edge37 Fund. All rights reserved.</p>
+            <p class="text-xs mt-2">Designed with precision. Built for the future.</p>
+        </footer>
     </div>
 </body>
 </html>
